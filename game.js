@@ -71,6 +71,7 @@ I did. But for once, I didn't say it. I watched the way the moonlight caught his
     title: 'You Wouldn\'t Dare',
     letter: 'Y',
     character: 'coen',
+    portrait: 'coenSerious',
     text: `We found the fourth clue in a hollow tree, a single word: <i>Vault</i>. The old storm cellar, maybe. The one near the north pasture. We rode there at a gallop, and I got there first. The door was already open. Inside: nothing. Just empty shelves and dust.
 
 Coen came in behind me. I turned. <i>"You took it. You got here before me and you took it."</i>
@@ -85,6 +86,7 @@ His jaw tightened. <i>"I didn't."</i> But he wouldn't meet my eyes. <span class=
     title: 'Vault of Old Letters',
     letter: 'V',
     character: 'coen',
+    portrait: 'coenSerious',
     text: `Coen stepped closer. For a moment I thought he might argue. Instead he knelt, brushed away the dust, and showed me a loose floorboard. Underneath: a tin box. Inside, faded letters, dozens of them. Old love notes. Promises. None of them the one we sought.
 
 <i>"I didn't take anything,"</i> he said quietly. <i>"I was checking if someone else had already been here. The door was like this when I arrived."</i>
@@ -173,6 +175,7 @@ My hands shook. Was it an excuse? Or the truth?`,
     title: 'In the Arena at Dawn',
     letter: 'I',
     character: 'coen',
+    portrait: 'coenSerious',
     text: `I found Coen at the arena. Alone. His horse grazing in the corner. He saw me and stood very still, like I might vanish if he moved.
 
 <i>"I thought you'd never want to see me again."</i>
@@ -189,6 +192,7 @@ He took a breath. <i>"Because I didn't want anyone else to find it before you. I
     title: 'No More Secrets',
     letter: 'N',
     character: 'coen',
+    portrait: 'coenSerious',
     text: `Coen told me everything. How he'd been searching for the same letter. How he'd found the final piece days before me and realized others were close, people who'd sell it, display it, ruin it. How he'd hidden it and left the note so I wouldn't think he'd betrayed the hunt, only to buy time.
 
 <i>"I was protecting it. For you. I didn't know how to say it."</i>
@@ -339,7 +343,7 @@ function renderChapter(chapterId) {
   if (portraitEl) {
     if (chapter.character === 'coen') {
       portraitEl.style.display = 'block';
-      const img = chapter.portrait === 'coenOnHorse' ? 'coenOnHorse.png' : 'coen.png';
+      const img = chapter.portrait === 'coenOnHorse' ? 'coenOnHorse.png' : chapter.portrait === 'coenSerious' ? 'coenSerious.png' : 'coen.png';
       portraitEl.innerHTML = `<img src="${img}" alt="Coen">`;
     } else {
       portraitEl.style.display = 'none';
