@@ -27,28 +27,30 @@ const CHAPTERS = {
     title: 'Beneath the Stable Roof',
     letter: 'B',
     character: 'coen',
+    portrait: 'coenOnHorse',
     text: `I've spent most of my life in these stables, mucking stalls, braiding manes, learning what it means when a horse trusts you. The old ones talk about a letter hidden somewhere along the riding trails. A message meant for one person. I've always thought it was a fairy tale.
 
 Until I found the first clue. A weathered scrap tucked under a loose board in the hayloft. <i>"Follow the marked winds,"</i> it said.
 
 I saddled <span class="horse-name">%horse%</span> before dawn. I didn't expect to see someone else already at the fence. He turned when he heard my horse. <i>"Coen,"</i> he said. <i>"I'm Coen. And you're looking for it too, aren't you?"</i> Someone I'd raced against a dozen times. Someone with the same hungry look in his eyes.`,
     choices: [
-      { label: '"You\'re looking for it too."', next: 'each_clue_a_challenge' },
-      { label: 'Ignore him and ride past.', next: 'each_clue_a_challenge' },
+      { label: '"Obviously. I have a map and everything."', next: 'each_clue_a_challenge' },
+      { label: 'Ignore him and ride past. (He\'ll catch up anyway.)', next: 'each_clue_a_challenge' },
     ],
   },
   each_clue_a_challenge: {
     title: 'Each Clue a Challenge',
     letter: 'E',
     character: 'coen',
+    portrait: 'coenOnHorse',
     text: `Coen caught up to me on the trail. Of course he did. His horse has always been faster than mine in a straight run. I've never let him forget I beat him in the jumping competition last spring.
 
 <i>"First one to the letter wins,"</i> he said.
 
 <i>"There\'s nothing to win. It\'s not a race."</i> I didn't look at him. <span class="horse-name">%horse%</span> flicked an ear, sensing my lie. It was always a race with us. The second clue led to a riddle carved into a fallen oak. I got there first. He was breathing down my neck the whole time.`,
     choices: [
-      { label: 'Solve the riddle together.', next: 'maps_in_the_moonlight' },
-      { label: 'Solve it alone. He can catch up.', next: 'maps_in_the_moonlight' },
+      { label: 'Solve it together. (Try to keep up.)', next: 'maps_in_the_moonlight' },
+      { label: 'Solve it alone. He can figure it out. Probably.', next: 'maps_in_the_moonlight' },
     ],
   },
   maps_in_the_moonlight: {
@@ -61,8 +63,8 @@ I saddled <span class="horse-name">%horse%</span> before dawn. I didn't expect t
 
 I did. But for once, I didn't say it. I watched the way the moonlight caught his profile and thought, dangerous. This feels dangerous.`,
     choices: [
-      { label: 'Share my theory.', next: 'you_wouldnt_dare' },
-      { label: 'Let him lead. Follow behind.', next: 'you_wouldnt_dare' },
+      { label: 'Share my theory. (It\'s better than his.)', next: 'you_wouldnt_dare' },
+      { label: 'Let him lead. I\'ll correct him when he\'s wrong.', next: 'you_wouldnt_dare' },
     ],
   },
   you_wouldnt_dare: {
@@ -90,13 +92,14 @@ His jaw tightened. <i>"I didn't."</i> But he wouldn't meet my eyes. <span class=
 I felt something shift. Shame, maybe. I'd accused him. He'd stayed.`,
     choices: [
       { label: '"I\'m sorry. I shouldn\'t have..."', next: 'an_unexpected_alliance' },
-      { label: 'Say nothing. Just nod.', next: 'an_unexpected_alliance' },
+      { label: 'Nod. (The strong, silent type. Very stable.)', next: 'an_unexpected_alliance' },
     ],
   },
   an_unexpected_alliance: {
     title: 'An Unexpected Alliance',
     letter: 'A',
     character: 'coen',
+    portrait: 'coenOnHorse',
     text: `We searched the vault together. Found a slip of paper tucked inside an envelope, a partial map. <i>"The loft,"</i> it said. <i>"Where the hay remembers."</i>
 
 <i>"Truce?"</i> Coen offered.
@@ -105,8 +108,8 @@ I felt something shift. Shame, maybe. I'd accused him. He'd stayed.`,
 
 We rode back side by side. The sun was rising. I don't know when I started noticing the way he talks to his horse, soft and patient, like he does with no one else. I stored that away. Dangerous.`,
     choices: [
-      { label: '"Race you to the stable."', next: 'letters_in_the_loft' },
-      { label: 'Ride in silence. It\'s enough.', next: 'letters_in_the_loft' },
+      { label: '"Race you! Loser mucks the stalls."', next: 'letters_in_the_loft' },
+      { label: 'Ride in silence. The moment feels right.', next: 'letters_in_the_loft' },
     ],
   },
   letters_in_the_loft: {
@@ -122,8 +125,8 @@ The clue led to a loose floorboard. Under it: a small key and a note. <i>"The ar
 
 <i>"Tomorrow, then,"</i> he said. He was standing close. I could see the dust in his hair.`,
     choices: [
-      { label: '"Tomorrow."', next: 'every_rival_has_a_tell' },
-      { label: '"Don\'t be late."', next: 'every_rival_has_a_tell' },
+      { label: '"Tomorrow. Don\'t oversleep."', next: 'every_rival_has_a_tell' },
+      { label: '"Don\'t be late. I won\'t wait."', next: 'every_rival_has_a_tell' },
     ],
   },
   every_rival_has_a_tell: {
@@ -136,8 +139,8 @@ The key opened a locker in the equipment shed. Inside: another letter fragment. 
 
 We'd been collecting letters from every clue. We were close. I could feel it. So could he. His hand brushed mine when we reached for the fragment at the same time. Neither of us pulled away.`,
     choices: [
-      { label: '"We\'re almost there."', next: 'the_night_he_betrayed_me' },
-      { label: 'Don\'t say anything. Just look at him.', next: 'the_night_he_betrayed_me' },
+      { label: '"We\'re so close I can taste the drama."', next: 'the_night_he_betrayed_me' },
+      { label: 'Stare at him. Say nothing. (Very enigmatic.)', next: 'the_night_he_betrayed_me' },
     ],
   },
   the_night_he_betrayed_me: {
@@ -149,8 +152,8 @@ We'd been collecting letters from every clue. We were close. I could feel it. So
 
 His handwriting. I stood there until the moon rose. He'd taken it. He'd taken the last piece and left. I'd let myself believe, what? That we were in this together? That it meant something? I rode home in the dark. I didn't cry. I told myself I wouldn't cry.`,
     choices: [
-      { label: 'Go home. Forget the letter.', next: 'trust_shattered' },
-      { label: 'Search the bridge. There has to be more.', next: 'trust_shattered' },
+      { label: 'Go home. I\'ll process this over tea and denial.', next: 'trust_shattered' },
+      { label: 'Search the bridge. There has to be something. Right?', next: 'trust_shattered' },
     ],
   },
   trust_shattered: {
@@ -162,8 +165,8 @@ Inside: the final clue. The one that should have been at the bridge. And a note,
 
 My hands shook. Was it an excuse? Or the truth?`,
     choices: [
-      { label: 'Find him. Hear him out.', next: 'in_the_arena_at_dawn' },
-      { label: 'Finish the puzzle first. Decide after.', next: 'in_the_arena_at_dawn' },
+      { label: 'Find him. Hear him out. (Drama demands resolution.)', next: 'in_the_arena_at_dawn' },
+      { label: 'Finish the puzzle first. Confrontations can wait.', next: 'in_the_arena_at_dawn' },
     ],
   },
   in_the_arena_at_dawn: {
@@ -192,8 +195,8 @@ He took a breath. <i>"Because I didn't want anyone else to find it before you. I
 
 We spread the clues in the arena dust. Fourteen letters, one from each place we'd been. In order. <i>"The first letter of each chapter,"</i> he said. <i>"Of every place we went. They spell something. We just have to see it."</i>`,
     choices: [
-      { label: 'Arrange the letters together.', next: 'every_letter_decoded' },
-      { label: '"I think I see it."', next: 'every_letter_decoded' },
+      { label: '"Let\'s spell this out. Literally."', next: 'every_letter_decoded' },
+      { label: '"I think I see it..."', next: 'every_letter_decoded' },
     ],
   },
   every_letter_decoded: {
@@ -336,7 +339,8 @@ function renderChapter(chapterId) {
   if (portraitEl) {
     if (chapter.character === 'coen') {
       portraitEl.style.display = 'block';
-      portraitEl.innerHTML = '<img src="coen.png" alt="Coen">';
+      const img = chapter.portrait === 'coenOnHorse' ? 'coenOnHorse.png' : 'coen.png';
+      portraitEl.innerHTML = `<img src="${img}" alt="Coen">`;
     } else {
       portraitEl.style.display = 'none';
       portraitEl.innerHTML = '';
@@ -398,46 +402,18 @@ function showReveal() {
     <p class="letters-display" style="font-size: 1.25rem; letter-spacing: 0.25em; margin: 1rem 0;">
       B E M Y V A L E N T I N E S
     </p>
-    <p style="color: var(--color-text-dim); margin-bottom: 1rem; font-size: 0.95rem;">
-      Add spaces to form three words. What does the message say?
+    <p class="final-message" style="margin: 2rem 0;">
+      be my valentines
     </p>
-    <div class="decode-puzzle">
-      <input type="text" id="decode-input" placeholder="Type the secret message..." autocomplete="off" maxlength="25">
-      <button id="decode-submit" class="btn btn-primary">Reveal</button>
-    </div>
-    <p id="decode-result" class="decode-result" style="display:none;"></p>
-    <p class="closing-text" id="closing-text" style="display:none;">
+    <p class="closing-text" style="color: var(--color-text-dim); margin-bottom: 1.5rem;">
       Will you?
     </p>
+    <button id="btn-play-again" class="btn btn-primary">Play again</button>
   `;
 
   revealContent.innerHTML = html;
 
-  const input = document.getElementById('decode-input');
-  const submitBtn = document.getElementById('decode-submit');
-  const resultEl = document.getElementById('decode-result');
-  const closingEl = document.getElementById('closing-text');
-
-  function checkAnswer() {
-    const answer = (input.value || '').trim().toLowerCase().replace(/\s+/g, ' ');
-    if (answer === 'be my valentines') {
-      resultEl.style.display = 'block';
-      resultEl.className = 'decode-result correct';
-      resultEl.innerHTML = `<span class="final-message">${answer}</span>`;
-      closingEl.style.display = 'block';
-      input.style.display = 'none';
-      submitBtn.style.display = 'none';
-    } else if (answer.length >= 5) {
-      resultEl.style.display = 'block';
-      resultEl.className = 'decode-result';
-      resultEl.textContent = 'Not quite. Remember: three words, fourteen letters.';
-    }
-  }
-
-  submitBtn.addEventListener('click', checkAnswer);
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') checkAnswer();
-  });
+  document.getElementById('btn-play-again').addEventListener('click', () => showScreen('landing'));
 }
 
 function goToChapter(chapterId) {
