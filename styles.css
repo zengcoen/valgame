@@ -375,7 +375,7 @@ body {
 }
 
 .character-portrait img {
-  width: 100px;
+  width: 200px;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
@@ -393,7 +393,7 @@ body {
   }
 
   .character-portrait img {
-    width: 80px;
+    width: 160px;
   }
 }
 
