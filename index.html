@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Magical Journey: A Romance Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- LANDING -->
+    <section id="screen-landing" class="screen active">
+      <div class="title-block">
+        <h1>A Magical Journey</h1>
+        <p class="subtitle">A Romance Adventure</p>
+        <p class="tagline">By Coen</p>
+        <button id="btn-start" class="btn btn-primary">Begin</button>
+      </div>
+    </section>
+
+    <!-- INTRO LETTER -->
+    <section id="screen-letter" class="screen">
+      <div class="letter-container letter-intro">
+        <p class="letter-opener">They say a legendary letter lies hidden along a path few ever find. An old scrap, folded and worn. It reads:</p>
+        <blockquote class="letter-quote">
+          Ride before sunset. Follow the marked winds.<br>
+          What was once unsaid waits to be found.
+        </blockquote>
+        <p class="letter-opener">You've heard the tale. Tonight, you've come to seek it.</p>
+        <button id="btn-letter-continue" class="btn btn-primary">Continue</button>
+      </div>
+    </section>
+
+    <!-- STABLE MASTER INTRO (before selection) -->
+    <section id="screen-stablemaster-intro" class="screen">
+      <div class="dialogue-panel">
+        <div class="dialogue-portrait">
+          <img src="stablemaster.png" alt="The Stable Master">
+        </div>
+        <div class="dialogue-content">
+          <p class="dialogue-text">
+            Ah, welcome. I'm the stable master. I've been tending these horses and these trails for more years than I care to count.
+          </p>
+          <p class="dialogue-text">
+            You've heard about the letter, the one hidden along the paths. Many have searched. Few have gotten far. You'll need a companion. Three horses graze beyond: Ember, Mist, and Star. Each has a soul as distinct as the seasons. One of them will carry you where you need to go. Trust your heart when you choose.
+          </p>
+          <button id="btn-stablemaster-continue" class="btn btn-primary">Meet the horses</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- HORSE SELECTION -->
+    <section id="screen-selection" class="screen">
+      <div class="letter-container">
+        <p class="letter-opener">The stable master has pointed you toward the meadow. Three horses graze in the twilight, each one waiting, each one watching. One of them will carry you along the trails in search of the hidden letter. Choose wisely.</p>
+      </div>
+      <h2 class="section-heading">Choose Your Horse</h2>
+      <div class="horse-cards">
+        <div class="horse-card" data-horse="ember">
+          <div class="horse-icon"><img src="horse1.png" alt="Ember"></div>
+          <h3>Ember</h3>
+          <p>Spirited and swift. A fiery heart that loves to run. For those who seek warmth and excitement.</p>
+          <button class="btn btn-select" data-horse="ember">Choose Ember</button>
+        </div>
+        <div class="horse-card" data-horse="mist">
+          <div class="horse-icon"><img src="horse2.png" alt="Mist"></div>
+          <h3>Mist</h3>
+          <p>Gentle and wise. Carries an air of ancient knowing. For the curious and dreamy soul.</p>
+          <button class="btn btn-select" data-horse="mist">Choose Mist</button>
+        </div>
+        <div class="horse-card" data-horse="star">
+          <div class="horse-icon"><img src="horse3.png" alt="Star"></div>
+          <h3>Star</h3>
+          <p>Bright and steadfast. Guides by starlight. For those who believe in wonder.</p>
+          <button class="btn btn-select" data-horse="star">Choose Star</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STABLE MASTER POST-SELECTION (after choosing a horse) -->
+    <section id="screen-stablemaster-outro" class="screen">
+      <div class="dialogue-panel">
+        <div class="dialogue-portrait">
+          <img src="stablemaster.png" alt="The Stable Master">
+        </div>
+        <div class="dialogue-content">
+          <p class="dialogue-text" id="stablemaster-outro-text">
+            A fine choice. A fine choice indeed.
+          </p>
+          <p class="dialogue-text">
+            A name holds power. Give your companion a name, one that speaks true. Ride before sunset. The trails are waiting. And so, I've heard, is someone else who's been searching for the same letter. Good luck out there.
+          </p>
+          <button id="btn-stablemaster-to-naming" class="btn btn-primary">Name my companion</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAMING -->
+    <section id="screen-naming" class="screen">
+      <h2 class="section-heading">Name Your Horse</h2>
+      <div class="letter-container naming-container">
+        <div class="chosen-horse-preview">
+          <img id="naming-horse-icon" class="horse-icon-large" src="horse1.png" alt="">
+          <p id="naming-horse-type"></p>
+        </div>
+        <div class="name-input-wrap">
+          <label for="horse-name">A name holds power. Give your companion a name:</label>
+          <input type="text" id="horse-name" placeholder="Your horse's name" maxlength="20" autocomplete="off">
+          <button id="btn-begin" class="btn btn-primary">Begin the Journey</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVENTURE -->
+    <section id="screen-adventure" class="screen">
+      <div class="adventure-layout">
+        <div class="chapter-header">
+          <span id="chapter-title" class="chapter-title"></span>
+        </div>
+        <div class="adventure-content">
+          <div id="character-portrait" class="character-portrait" style="display:none;"></div>
+          <div class="narrative-panel">
+            <div id="story-text" class="story-text"></div>
+          </div>
+        </div>
+        <div class="choices-panel">
+          <div id="choices-container" class="choices-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL REVEAL -->
+    <section id="screen-reveal" class="screen">
+      <div id="reveal-content" class="reveal-content"></div>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

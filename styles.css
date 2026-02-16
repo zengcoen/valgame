@@ -1,0 +1,656 @@
+/* ===== Magical Romance Adventure: Whimsical & Cozy ===== */
+:root {
+  --color-bg: #1a1625;
+  --color-bg-warm: #2a2438;
+  --color-surface: #2d283e;
+  --color-surface-soft: #3d3750;
+  --color-accent: #e8b4bc;
+  --color-accent-dim: #c995a0;
+  --color-accent-gold: #d4a574;
+  --color-accent-soft: #c9b8d8;
+  --color-text: #f5f0f8;
+  --color-text-dim: #b8a9c4;
+  --color-border: #5a4d6a;
+  --color-highlight: #e8b4bc;
+  --color-magic: #9b7cb8;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Quicksand", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-bg);
+  background-image: 
+    radial-gradient(ellipse at 20% 20%, rgba(155, 124, 184, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(232, 180, 188, 0.1) 0%, transparent 50%);
+}
+
+.game-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* ===== Screens ===== */
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 640px;
+  animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Landing ===== */
+#screen-landing .title-block {
+  text-align: center;
+  padding: 2rem;
+}
+
+#screen-landing h1 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+#screen-landing .subtitle {
+  font-size: 1rem;
+  color: var(--color-accent-soft);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+#screen-landing .tagline {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  margin-bottom: 2.5rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 14px 32px;
+  border: 2px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 999px;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  font-size: 1rem;
+  padding: 16px 40px;
+}
+
+/* ===== Letter / Intro ===== */
+.letter-container {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.letter {
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.letter p,
+.letter-opener {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-dim);
+}
+
+.letter em {
+  color: var(--color-accent-soft);
+  font-style: italic;
+}
+
+.letter-signature {
+  margin-top: 1.5rem;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+.letter-intro {
+  max-width: 480px;
+}
+
+.letter-quote {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-accent-soft);
+  border-left: 4px solid var(--color-accent-gold);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  line-height: 1.8;
+}
+
+/* ===== Stable Master Dialogue ===== */
+.dialogue-panel {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 560px;
+}
+
+.dialogue-portrait {
+  flex-shrink: 0;
+}
+
+.dialogue-portrait img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.dialogue-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dialogue-text {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.dialogue-content .btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .dialogue-panel {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dialogue-portrait img {
+    width: 120px;
+  }
+
+  .dialogue-content .btn {
+    align-self: center;
+  }
+}
+
+/* ===== Horse Selection ===== */
+.section-heading {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 1rem 0 1.5rem;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+}
+
+.horse-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.horse-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.horse-card:hover {
+  border-color: var(--color-accent-dim, var(--color-accent));
+  transform: translateY(-2px);
+}
+
+.horse-card .horse-icon {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.horse-card .horse-icon img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.horse-card h3 {
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-sans);
+}
+
+.horse-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.btn-select {
+  font-size: 0.85rem;
+  padding: 10px 18px;
+}
+
+/* ===== Naming ===== */
+.naming-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.chosen-horse-preview {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.horse-icon-large {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+#naming-horse-type {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+}
+
+.name-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.name-input-wrap label {
+  font-size: 0.95rem;
+  color: var(--color-text-dim);
+}
+
+.name-input-wrap input {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 12px 16px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+}
+
+.name-input-wrap input::placeholder {
+  color: var(--color-text-dim);
+  opacity: 0.6;
+}
+
+.name-input-wrap input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* ===== Adventure Screen ===== */
+.adventure-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.chapter-header {
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.chapter-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent-gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.adventure-content {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.character-portrait {
+  flex-shrink: 0;
+}
+
+.character-portrait img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.adventure-content .narrative-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .adventure-content {
+    flex-direction: column;
+  }
+
+  .character-portrait img {
+    width: 80px;
+  }
+}
+
+.narrative-panel {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  min-height: 200px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.story-text {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.story-text .horse-speak {
+  color: var(--color-accent-soft);
+  font-style: italic;
+}
+
+.story-text .emphasis {
+  color: var(--color-accent-gold);
+}
+
+/* ===== Puzzle Area ===== */
+.puzzle-area {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--color-border);
+}
+
+.puzzle-area input[type="text"],
+.puzzle-area input[type="number"] {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 12px 16px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  width: 100%;
+  max-width: 320px;
+  margin-top: 0.5rem;
+}
+
+.puzzle-area input::placeholder {
+  color: var(--color-text-dim);
+  opacity: 0.7;
+}
+
+.puzzle-area input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.puzzle-area label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  margin-bottom: 0.25rem;
+}
+
+.puzzle-hint {
+  font-size: 0.85rem;
+  color: var(--color-accent-gold);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.puzzle-error {
+  font-size: 0.9rem;
+  color: var(--color-highlight);
+  margin-top: 0.5rem;
+}
+
+.scramble-display {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  letter-spacing: 8px;
+  color: var(--color-accent);
+  margin: 1rem 0;
+}
+
+.grade-ladder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.grade-step {
+  padding: 8px 14px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+}
+
+.grade-step.collected {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ===== Choices ===== */
+.choices-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.choice-btn {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 14px 20px;
+  text-align: left;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.choice-btn:hover,
+.choice-btn:focus {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-bg);
+  outline: none;
+}
+
+.choice-btn:active {
+  transform: scale(0.99);
+}
+
+/* ===== Reveal Screen ===== */
+#screen-reveal {
+  text-align: center;
+  padding: 2rem;
+}
+
+.reveal-content {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.reveal-content .chapter-list {
+  text-align: left;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+}
+
+.reveal-content .chapter-item {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.reveal-content .chapter-item .first-letter {
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+.reveal-content .final-message {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 4px;
+  margin: 2rem 0;
+  line-height: 1.5;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px rgba(232, 180, 188, 0.3); }
+  to { text-shadow: 0 0 30px rgba(232, 180, 188, 0.5); }
+}
+
+.reveal-content .closing-text {
+  font-size: 1.1rem;
+  color: var(--color-text-dim);
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.decode-puzzle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.decode-puzzle input {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 12px 16px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.decode-puzzle input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.decode-puzzle .btn {
+  align-self: center;
+}
+
+.decode-result {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+  margin-top: 1rem;
+}
+
+.decode-result.correct .final-message {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  #screen-landing h1 {
+    font-size: 1.9rem;
+  }
+
+  .letter p,
+  .story-text {
+    font-size: 1rem;
+  }
+
+  .chapter-title {
+    font-size: 0.75rem;
+  }
+}
